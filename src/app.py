@@ -7,7 +7,7 @@ todos = [{ "label": "Sample", "done": True }]
 # # def hello_world():
 # #     return '<h1>Hello!</h1>'
 
-# @app.route('/todos', methods=['GET'])
+@app.route('/todos', methods=['GET'])
 def hello_world():
     json_text = jsonify(todos)
     return json_text
