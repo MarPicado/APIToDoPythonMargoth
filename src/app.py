@@ -1,11 +1,14 @@
 from flask import Flask, jsonify, request
+import json
+decoded_object = json.loads(original_string)
 app = Flask(__name__)
 
-todos = [{ "label": "Sample", "done": True }]
+
+todos = [{ "label": "Sample", "done": True}]
 
 # @app.route('/todos', methods=['GET'])
-# # def hello_world():
-# #     return '<h1>Hello!</h1>'
+# def hello_world():
+#     return '<h1>Hello!</h1>'
 
 @app.route('/todos', methods=['GET'])
 def hello_world():
@@ -15,6 +18,8 @@ def hello_world():
 @app.route('/todos', methods=['POST'])
 def add_new_todo():
     request_body = request.data
+    # decoded_object = json.loads(original_string)
+    json_text = jsonify(todos)
     print("Incoming request with the following body", request_body)
     return 'Response for the POST todo'
 
